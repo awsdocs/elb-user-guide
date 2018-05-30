@@ -16,13 +16,23 @@ After you disable an Availability Zone, the targets in that Availability Zone re
 
 ### Cross\-Zone Load Balancing<a name="cross-zone-load-balancing"></a>
 
-If the nodes for your load balancer can distribute requests regardless of Availability Zone, this is known as *cross\-zone load balancing*\. With cross\-zone load balancing, the load balancer distributes traffic evenly across all registered targets in all enabled Availability Zones\. Otherwise, each load balancer node distributes traffic only to registered targets in its Availability Zone\. For example, suppose that you have 10 instances in us\-west\-2a and 2 instances in us\-west\-2b\. With cross\-zone load balancing, the load balancer distributes incoming requests evenly across all 12 instances\. Otherwise, the 2 instances in us\-west\-2b serve the same amount of traffic as the 10 instances in us\-west\-2a\.
+The nodes for your load balancer distribute requests from clients to registered targets\. When cross\-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones\. When cross\-zone load balancing is disabled, each load balancer node distributes traffic across the registered targets in its Availability Zone only\.
+
+The following diagrams demonstrate the effect of cross\-zone load balancing\. There are two enabled Availability Zones, with 2 targets in Availability Zone A and 8 targets in Availability Zone B\. Clients send requests, and Amazon Route 53 responds to each request with the IP address of one of the load balancer nodes\. This distributes traffic such that each load balancer node receives 50% of the traffic from the clients\. Each load balancer node distributes its share of the traffic across the registered targets in its scope\.
+
+If cross\-zone load balancing is enabled, each of the 10 targets receives 10% of the traffic\. This is because each load balancer node can route its 50% of the client traffic to all 10 targets\.
+
+![\[When cross-zone load balancing is enabled\]](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/cross_zone_load_balancing_enabled.png)
+
+If cross\-zone load balancing is disabled, each of the 2 targets in Availability Zone A receives 25% of the traffic and each of the 8 targets in Availability Zone B receives 6\.25% of the traffic\. This is because each load balancer node can route its 50% of the client traffic only to targets in its Availability Zone\.
+
+![\[When cross-zone load balancing is disabled\]](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/cross_zone_load_balancing_disabled.png)
 
 With Application Load Balancers, cross\-zone load balancing is always enabled\.
 
-With Network Load Balancers, each load balancer node distributes traffic across the registered targets in its Availability Zone only\.
+With Network Load Balancers, cross\-zone load balancing is disabled by default\. After you create a Network Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Cross\-Zone Load Balancing](http://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#cross-zone-load-balancing) in the *User Guide for Network Load Balancers*\.
 
-When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\.
+When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Enable Cross\-Zone Load Balancing](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html#enable-cross-zone) in the *User Guide for Classic Load Balancers*\.
 
 ## Request Routing<a name="request-routing"></a>
 
@@ -42,7 +52,7 @@ With Classic Load Balancers, the load balancer node that receives the request se
 
 ### HTTP Connections<a name="http-connections"></a>
 
-Classic Load Balancers use pre\-open connections but Application Load Balancers do not\.
+Classic Load Balancers use pre\-open connections but Application Load Balancers do not\. Both Classic Load Balancers and Application Load Balancers use connection multiplexing\. This means that requests from multiple clients on multiple front\-end connections can be routed to a given target through a single back\-end connection\. Connection multiplexing improves latency and reduces the load on your applications\. To prevent connection multiplexing, disable HTTP keep\-alives by setting the `Connection: close` header in your HTTP responses\.
 
 Classic Load Balancers support the following protocols on front\-end connections \(client to load balancer\): HTTP/0\.9, HTTP/1\.0, and HTTP/1\.1\.
 
@@ -63,11 +73,8 @@ For front\-end connections that use HTTP/2, the header names are in lowercase\. 
 Application Load Balancers and Classic Load Balancers honor the connection header from the incoming client request after proxying the response back to the client\.
 
 HTTP headers for Application Load Balancers have the following size limits:
-
 + Request line: 16K
-
 + Single header: 16K
-
 + Whole header: 64K
 
 ## Load Balancer Scheme<a name="load-balancer-scheme"></a>
