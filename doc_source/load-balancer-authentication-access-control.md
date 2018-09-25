@@ -32,7 +32,7 @@ An IAM policy is a JSON document that consists of one or more statements\. Each 
 + **Resource**— The resource that's affected by the action\. With many Elastic Load Balancing API actions, you can restrict the permissions granted or denied to a specific load balancer by specifying its Amazon Resource Name \(ARN\) in this statement\. Otherwise, you can use the \* wildcard to specify all of your load balancers\. For more information, see [Elastic Load Balancing Resources](#elb-resources)\.
 + **Condition**— You can optionally use conditions to control when your policy is in effect\. For more information, see [Condition Keys for Elastic Load Balancing](#elb-condition-keys)\.
 
-For more information, see the [IAM User Guide](http://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
+For more information, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
 
 ## API Actions for Elastic Load Balancing<a name="elb-api-actions"></a>
 
@@ -64,8 +64,8 @@ To specify all API actions for Elastic Load Balancing, use the \* wildcard, as i
 ```
 
 For the complete list of the API actions for Elastic Load Balancing, see the following documentation:
-+ Application Load Balancers and Network Load Balancers — [API Reference version 2015\-12\-01](http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/)
-+ Classic Load Balancers — [API Reference version 2012\-06\-01](http://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/)
++ Application Load Balancers and Network Load Balancers — [API Reference version 2015\-12\-01](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/)
++ Classic Load Balancers — [API Reference version 2012\-06\-01](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/)
 
 ## Elastic Load Balancing Resources<a name="elb-resources"></a>
 
@@ -218,9 +218,17 @@ The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elasti
 + `SetSecurityGroups`
 + `SetSubnets`
 
-For more information about global condition keys, see [AWS Global Condition Context Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
+For more information about global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
 The following actions support the `aws:RequestTag`/*key* and `aws:TagKeys` condition keys:
 + `AddTags`
 + `CreateLoadBalancer`
 + `RemoveTags`
+
+## Predefined AWS Managed Policies<a name="elb-predefined-policies"></a>
+
+The managed policies created by AWS grant the required permissions for common use cases\. You can attach these policies to your IAM users, based on the access that they need to Elastic Load Balancing:
++ **ElasticLoadBalancingFullAccess** — Grants full access required to use Elastic Load Balancing features\.
++ **ElasticLoadBalancingReadOnly** — Grants read\-only access to Elastic Load Balancing features\.
+
+For more information about the permissions required by each Elastic Load Balancing action, see [Elastic Load Balancing API Permissions](elb-api-permissions.md)\.

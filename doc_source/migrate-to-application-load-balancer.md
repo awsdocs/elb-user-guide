@@ -90,12 +90,12 @@ Now that you have migrated your Classic Load Balancer, be sure to update any ref
 + AWS CloudFormation templates
 
 **Resources**
-+ [elbv2](http://docs.aws.amazon.com/cli/latest/reference/elbv2/index.html) in the *AWS CLI Command Reference*
-+ [Elastic Load Balancing API Reference version 2015\-12\-01](http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/)
++ [elbv2](https://docs.aws.amazon.com/cli/latest/reference/elbv2/index.html) in the *AWS CLI Command Reference*
++ [Elastic Load Balancing API Reference version 2015\-12\-01](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/)
 + [Authentication and Access Control for Your Load Balancers](load-balancer-authentication-access-control.md)
-+ [Application Load Balancer Metrics](http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-cloudwatch-metrics.html#load-balancer-metrics-alb) in the *User Guide for Application Load Balancers*
-+ [Network Load Balancer Metrics](http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#load-balancer-metrics-nlb) in the *User Guide for Network Load Balancers*
-+ [AWS::ElasticLoadBalancingV2::LoadBalancer](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html) in the *AWS CloudFormation User Guide*
++ [Application Load Balancer Metrics](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-cloudwatch-metrics.html#load-balancer-metrics-alb) in the *User Guide for Application Load Balancers*
++ [Network Load Balancer Metrics](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html#load-balancer-metrics-nlb) in the *User Guide for Network Load Balancers*
++ [AWS::ElasticLoadBalancingV2::LoadBalancer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html) in the *AWS CloudFormation User Guide*
 
 ## Step 4: Delete the Classic Load Balancer<a name="migrate-cleanup"></a>
 

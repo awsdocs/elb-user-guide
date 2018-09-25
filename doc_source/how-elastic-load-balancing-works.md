@@ -30,9 +30,9 @@ If cross\-zone load balancing is disabled, each of the 2 targets in Availability
 
 With Application Load Balancers, cross\-zone load balancing is always enabled\.
 
-With Network Load Balancers, cross\-zone load balancing is disabled by default\. After you create a Network Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Cross\-Zone Load Balancing](http://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#cross-zone-load-balancing) in the *User Guide for Network Load Balancers*\.
+With Network Load Balancers, cross\-zone load balancing is disabled by default\. After you create a Network Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Cross\-Zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#cross-zone-load-balancing) in the *User Guide for Network Load Balancers*\.
 
-When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Enable Cross\-Zone Load Balancing](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html#enable-cross-zone) in the *User Guide for Classic Load Balancers*\.
+When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Enable Cross\-Zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html#enable-cross-zone) in the *User Guide for Classic Load Balancers*\.
 
 ## Request Routing<a name="request-routing"></a>
 
@@ -72,9 +72,14 @@ For front\-end connections that use HTTP/2, the header names are in lowercase\. 
 
 Application Load Balancers and Classic Load Balancers honor the connection header from the incoming client request after proxying the response back to the client\.
 
-HTTP headers for Application Load Balancers have the following size limits:
+HTTP/1\.x headers for Application Load Balancers have the following size limits:
 + Request line: 16K
 + Single header: 16K
++ Whole header: 64K
+
+HTTP/2 headers for Application Load Balancers have the following size limits:
++ Request line: 8K
++ Single header: 8K
 + Whole header: 64K
 
 ## Load Balancer Scheme<a name="load-balancer-scheme"></a>
