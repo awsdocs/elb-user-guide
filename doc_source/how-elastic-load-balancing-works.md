@@ -72,6 +72,8 @@ For front\-end connections that use HTTP/2, the header names are in lowercase\. 
 
 Application Load Balancers and Classic Load Balancers honor the connection header from the incoming client request after proxying the response back to the client\.
 
+### HTTP Header Limits<a name="http-header-limits"></a>
+
 HTTP/1\.x headers for Application Load Balancers have the following size limits:
 + Request line: 16K
 + Single header: 16K

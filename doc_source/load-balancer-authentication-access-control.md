@@ -202,7 +202,9 @@ The following tables describe the Elastic Load Balancing actions that support re
 
 When you create a policy, you can specify the conditions that control when the policy is in effect\. Each condition contains one or more key\-value pairs\. There are global condition keys and service\-specific condition keys\.
 
-The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elastic Load Balancing\. The following actions support this condition key:
+The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elastic Load Balancing\. The following actions support this condition key\.
+
+**API version 2015\-12\-01**
 + `AddTags`
 + `CreateListener`
 + `CreateLoadBalancer`
@@ -217,6 +219,30 @@ The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elasti
 + `SetIpAddressType`
 + `SetSecurityGroups`
 + `SetSubnets`
+
+**API version 2012\-06\-01**
++ `AddTags`
++ `ApplySecurityGroupsToLoadBalancer`
++ `AttachLoadBalancersToSubnets`
++ `ConfigureHealthCheck`
++ `CreateAppCookieStickinessPolicy`
++ `CreateLBCookieStickinessPolicy`
++ `CreateLoadBalancer`
++ `CreateLoadBalancerListeners`
++ `CreateLoadBalancerPolicy`
++ `DeleteLoadBalancer`
++ `DeleteLoadBalancerListeners`
++ `DeleteLoadBalancerPolicy`
++ `DeregisterInstancesFromLoadBalancer`
++ `DetachLoadBalancersFromSubnets`
++ `DisableAvailabilityZonesForLoadBalancer`
++ `EnableAvailabilityZonesForLoadBalancer`
++ `ModifyLoadBalancerAttributes`
++ `RegisterInstancesWithLoadBalancer`
++ `RemoveTags`
++ `SetLoadBalancerListenerSSLCertificate`
++ `SetLoadBalancerPoliciesForBackendServer`
++ `SetLoadBalancerPoliciesOfListener`
 
 For more information about global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
