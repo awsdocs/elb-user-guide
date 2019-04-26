@@ -20,4 +20,5 @@ Amazon's trademarks and trade dress may not be used in
 + [Authentication and Access Control for Your Load Balancers](load-balancer-authentication-access-control.md)
    + [Elastic Load Balancing API Permissions](elb-api-permissions.md)
    + [Elastic Load Balancing Service-Linked Role](elb-service-linked-roles.md)
++ [Elastic Load Balancing and Interface VPC Endpoints](load-balancer-vpc-endpoints.md)
 + [Migrate Your Classic Load Balancer](migrate-to-application-load-balancer.md)

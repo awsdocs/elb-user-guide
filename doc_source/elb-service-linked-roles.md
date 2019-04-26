@@ -7,6 +7,7 @@ Elastic Load Balancing uses a service\-linked role for the permissions that it r
 Elastic Load Balancing uses the service\-linked role named **AWSServiceRoleForElasticLoadBalancing** to call the following actions on your behalf:
 + `ec2:DescribeAddresses`
 + `ec2:DescribeInstances`
++ `ec2:DescribeNetworkInterfaces`
 + `ec2:DescribeSubnets`
 + `ec2:DescribeSecurityGroups`
 + `ec2:DescribeVpcs`
