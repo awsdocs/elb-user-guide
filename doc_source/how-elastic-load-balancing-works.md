@@ -74,12 +74,14 @@ Application Load Balancers and Classic Load Balancers honor the connection heade
 
 ### HTTP Header Limits<a name="http-header-limits"></a>
 
-HTTP/1\.x headers for Application Load Balancers have the following size limits:
+The following size limits for Application Load Balancers are hard limits that cannot be changed\.
+
+**HTTP/1\.x Headers**
 + Request line: 16K
 + Single header: 16K
 + Whole header: 64K
 
-HTTP/2 headers for Application Load Balancers have the following size limits:
+**HTTP/2 Headers**
 + Request line: 8K
 + Single header: 8K
 + Whole header: 64K
