@@ -18,7 +18,6 @@ Elastic Load Balancing uses the service\-linked role named **AWSServiceRoleForEl
 + `ec2:CreateSecurityGroup`
 + `ec2:CreateNetworkInterface`
 + `ec2:DeleteNetworkInterface`
-+ `ec2:ModifyNetworkInterface`
 + `ec2:ModifyNetworkInterfaceAttribute`
 + `ec2:AuthorizeSecurityGroupIngress`
 + `ec2:AssociateAddress`

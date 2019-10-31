@@ -2,6 +2,8 @@
 
 There are three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers\. You can select a load balancer based on your application needs\. For more information, see [Comparison of Elastic Load Balancing Products](https://aws.amazon.com/elasticloadbalancing/details/#compare)\.
 
+For demos of common load balancer configurations, see [Elastic Load Balancing Demos](https://exampleloadbalancer.com/)\.
+
 If you have an existing Classic Load Balancer, you can migrate to an Application Load Balancer or a Network Load Balancer\. For more information, see [Migrate Your Classic Load Balancer](migrate-to-application-load-balancer.md)\.
 
 ## Create an Application Load Balancer<a name="getting-started-alb"></a>

@@ -1,8 +1,8 @@
-# Authentication and Access Control for Your Load Balancers<a name="load-balancer-authentication-access-control"></a>
+# Identity and Access Management for Elastic Load Balancing<a name="load-balancer-authentication-access-control"></a>
 
 AWS uses security credentials to identify you and to grant you access to your AWS resources\. You can use features of AWS Identity and Access Management \(IAM\) to allow other users, services, and applications to use your AWS resources fully or in a limited way\. You can do this without sharing your security credentials\.
 
-By default, IAM users don't have permission to create, view, or modify AWS resources\. To allow an IAM user to access resources, such as a load balancer and to perform tasks, you:
+By default, IAM users don't have permission to create, view, or modify AWS resources\. To allow an IAM user to access resources such as a load balancer, and to perform tasks, you:
 
 1. Create an IAM policy that grants the IAM user permission to use the specific resources and API actions they need\.
 
@@ -208,7 +208,7 @@ The following tables describe the Elastic Load Balancing actions that support re
 
 When you create a policy, you can specify the conditions that control when the policy is in effect\. Each condition contains one or more key\-value pairs\. There are global condition keys and service\-specific condition keys\.
 
-The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elastic Load Balancing\. The following actions support this condition key\.
+The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elastic Load Balancing\. The following actions support this condition key:
 
 **API version 2015\-12\-01**
 + `AddTags`
