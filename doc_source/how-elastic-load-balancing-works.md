@@ -57,9 +57,7 @@ With **Application Load Balancers**, the load balancer node that receives the re
 
 1. Evaluates the listener rules in priority order to determine which rule to apply\.
 
-1. Selects a target from the target group for the rule action, using the round robin routing algorithm\.
-
-   Routing is performed independently for each target group, even when a target is registered with multiple target groups\.
+1. Selects a target from the target group for the rule action, using the round robin routing algorithm\. Routing is performed independently for each target group, even when a target is registered with multiple target groups\.
 
 With **Network Load Balancers**, the load balancer node that receives the connection uses the following process:
 
@@ -69,13 +67,11 @@ With **Network Load Balancers**, the load balancer node that receives the connec
    + The destination IP address and destination port
    + The TCP sequence number
 
-1. Routes each individual TCP connection to a single target for the life of the connection\.
+1. Routes each individual TCP connection to a single target for the life of the connection\. The TCP connections from a client have different source ports and sequence numbers, and can be routed to different targets\.
 
-   The TCP connections from a client have different source ports and sequence numbers, and can be routed to different targets\.
-
-With **Classic Load Balancers**, the load balancer node that receives the request selects a registered instance using:
-+ The round robin routing algorithm for TCP listeners
-+ The least outstanding requests routing algorithm for HTTP and HTTPS listeners
+With **Classic Load Balancers**, the load balancer node that receives the request selects a registered instance as follows:
++ Uses the round robin routing algorithm for TCP listeners
++ Uses the least outstanding requests routing algorithm for HTTP and HTTPS listeners
 
 ### HTTP Connections<a name="http-connections"></a>
 

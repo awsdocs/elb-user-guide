@@ -208,6 +208,8 @@ The following tables describe the Elastic Load Balancing actions that support re
 
 When you create a policy, you can specify the conditions that control when the policy is in effect\. Each condition contains one or more key\-value pairs\. There are global condition keys and service\-specific condition keys\.
 
+You cannot use the `aws:SourceIp` condition key with Elastic Load Balancing\.
+
 The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elastic Load Balancing\. The following actions support this condition key:
 
 **API version 2015\-12\-01**
