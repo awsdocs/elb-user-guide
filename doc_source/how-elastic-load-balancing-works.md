@@ -57,7 +57,7 @@ With **Application Load Balancers**, the load balancer node that receives the re
 
 1. Evaluates the listener rules in priority order to determine which rule to apply\.
 
-1. Selects a target from the target group for the rule action, using the round robin routing algorithm\. Routing is performed independently for each target group, even when a target is registered with multiple target groups\.
+1. Selects a target from the target group for the rule action, using the routing algorithm configured for the target group\. The default routing algorithm is round robin\. Routing is performed independently for each target group, even when a target is registered with multiple target groups\.
 
 With **Network Load Balancers**, the load balancer node that receives the connection uses the following process:
 
