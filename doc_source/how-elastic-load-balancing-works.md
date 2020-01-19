@@ -89,7 +89,7 @@ Application Load Balancers and Classic Load Balancers support pipelined HTTP on 
 
 ### HTTP Headers<a name="http-headers"></a>
 
-Application Load Balancers and Classic Load Balancers support **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, and **X\-Forwarded\-Port** headers\.
+Application Load Balancers and Classic Load Balancers add **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, and **X\-Forwarded\-Port** headers to the request\.
 
 For front\-end connections that use HTTP/2, the header names are in lowercase\. Before the request is sent to the target using HTTP/1\.1, the following header names are converted to mixed case: **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, **X\-Forwarded\-Port**, **Host**, **X\-Amzn\-Trace\-Id**, **Upgrade**, and **Connection**\. All other header names are in lowercase\.
 

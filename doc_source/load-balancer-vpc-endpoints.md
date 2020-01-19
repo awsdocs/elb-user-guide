@@ -4,6 +4,9 @@ You can establish a private connection between your virtual private cloud \(VPC\
 
 Interface VPC endpoints are powered by AWS PrivateLink, a feature that enables private communication between AWS services using private IP addresses\. For more information, see [AWS PrivateLink](http://aws.amazon.com/privatelink/)\.
 
+**Limit**  
+AWS PrivateLink does not support a Network Load Balancer with more than 50 listeners\.
+
 ## Create an Interface Endpoint for Elastic Load Balancing<a name="create-vpce-elb"></a>
 
 Create an endpoint for Elastic Load Balancing using one of the following service names:
