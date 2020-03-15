@@ -83,8 +83,6 @@ Application Load Balancers support the following protocols on front\-end connect
 
 Both Application Load Balancers and Classic Load Balancers use HTTP/1\.1 on backend connections \(load balancer to registered target\)\. `Keep-alive` is supported on backend connections by default\. For HTTP/1\.0 requests from clients that do not have a host header, the load balancer generates a host header for the HTTP/1\.1 requests sent on the backend connections\. For Application Load Balancer, the host header contains the DNS name of the load balancer\. For Classic Load Balancer, the host header contains the IP address of the load balancer node\.
 
-You can set an idle timeout value for both Application Load Balancers and Classic Load Balancers\. The default value is 60 seconds\. With an Application Load Balancer, the idle timeout value applies only to front\-end connections\. With a Classic Load Balancer, if a connection is idle for longer than the idle timeout value, the connection is torn down and the client receives an error response\. This is true for both front\-end and backend connections\. A registered target can use a `keep-alive` timeout to keep a backend connection open until it is ready to tear it down\.
-
 Application Load Balancers and Classic Load Balancers support pipelined HTTP on front\-end connections\. They do not support pipelined HTTP on backend connections\.
 
 ### HTTP Headers<a name="http-headers"></a>

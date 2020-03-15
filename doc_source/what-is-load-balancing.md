@@ -20,8 +20,8 @@ For more information about using each load balancer, see the [User Guide for App
 
 You can create, access, and manage your load balancers using any of the following interfaces:
 + **AWS Management Console**— Provides a web interface that you can use to access Elastic Load Balancing\.
-+ **AWS Command Line Interface \(AWS CLI\)** — Provides commands for a broad set of AWS services, including Elastic Load Balancing\. The AWS CLI is supported on Windows, macOS, and Linux\. For more information, see [AWS Command Line Interface](https://aws.amazon.com//cli/)\.
-+ **AWS SDKs** — Provide language\-specific APIs and take care of many of the connection details, such as calculating signatures, handling request retries, and error handling\. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs)\.
++ **AWS Command Line Interface \(AWS CLI\)** — Provides commands for a broad set of AWS services, including Elastic Load Balancing\. The AWS CLI is supported on Windows, macOS, and Linux\. For more information, see [AWS Command Line Interface](https://aws.amazon.com/cli/)\.
++ **AWS SDKs** — Provide language\-specific APIs and take care of many of the connection details, such as calculating signatures, handling request retries, and error handling\. For more information, see [AWS SDKs](https://aws.amazon.com/tools/#SDKs)\.
 + **Query API**— Provides low\-level API actions that you call using HTTPS requests\. Using the Query API is the most direct way to access Elastic Load Balancing\. However, the Query API requires that your application handle low\-level details such as generating the hash to sign the request, and error handling\. For more information, see the following:
   + Application Load Balancers and Network Load Balancers — [API version 2015\-12\-01](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/)
   + Classic Load Balancers — [API version 2012\-06\-01](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/)
