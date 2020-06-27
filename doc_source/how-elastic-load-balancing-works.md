@@ -1,4 +1,4 @@
-# How Elastic Load Balancing Works<a name="how-elastic-load-balancing-works"></a>
+# How Elastic Load Balancing works<a name="how-elastic-load-balancing-works"></a>
 
 A load balancer accepts incoming traffic from clients and routes requests to its registered targets \(such as EC2 instances\) in one or more Availability Zones\. The load balancer also monitors the health of its registered targets and ensures that it routes traffic only to healthy targets\. When the load balancer detects an unhealthy target, it stops routing traffic to that target\. It then resumes routing traffic to that target when it detects that the target is healthy again\.
 
@@ -11,7 +11,7 @@ Elastic Load Balancing supports three types of load balancers:
 
 There is a key difference in how the load balancer types are configured\. With Application Load Balancers and Network Load Balancers, you register targets in target groups, and route traffic to the target groups\. With Classic Load Balancers, you register instances with the load balancer\.
 
-## Availability Zones and Load Balancer Nodes<a name="availability-zones"></a>
+## Availability Zones and load balancer nodes<a name="availability-zones"></a>
 
 When you enable an Availability Zone for your load balancer, Elastic Load Balancing creates a load balancer node in the Availability Zone\. If you register targets in an Availability Zone but do not enable the Availability Zone, these registered targets do not receive traffic\. Your load balancer is most effective when you ensure that each enabled Availability Zone has at least one registered target\.
 
@@ -19,7 +19,7 @@ We recommend that you enable multiple Availability Zones\. \(With an Application
 
 After you disable an Availability Zone, the targets in that Availability Zone remain registered with the load balancer\. However, even though they remain registered, the load balancer does not route traffic to them\.
 
-### Cross\-Zone Load Balancing<a name="cross-zone-load-balancing"></a>
+### Cross\-zone load balancing<a name="cross-zone-load-balancing"></a>
 
 The nodes for your load balancer distribute requests from clients to registered targets\. When cross\-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones\. When cross\-zone load balancing is disabled, each load balancer node distributes traffic only across the registered targets in its Availability Zone\.
 
@@ -39,11 +39,11 @@ This is because each load balancer node can route its 50% of the client traffic 
 
 With Application Load Balancers, cross\-zone load balancing is always enabled\.
 
-With Network Load Balancers, cross\-zone load balancing is disabled by default\. After you create a Network Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Cross\-Zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#cross-zone-load-balancing) in the *User Guide for Network Load Balancers*\.
+With Network Load Balancers, cross\-zone load balancing is disabled by default\. After you create a Network Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Cross\-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#cross-zone-load-balancing) in the *User Guide for Network Load Balancers*\.
 
-When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Enable Cross\-Zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html#enable-cross-zone) in the *User Guide for Classic Load Balancers*\.
+When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Enable cross\-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html#enable-cross-zone) in the *User Guide for Classic Load Balancers*\.
 
-## Request Routing<a name="request-routing"></a>
+## Request routing<a name="request-routing"></a>
 
 Before a client sends a request to your load balancer, it resolves the load balancer's domain name using a Domain Name System \(DNS\) server\. The DNS entry is controlled by Amazon, because your load balancers are in the `amazonaws.com` domain\. The Amazon DNS servers return one or more IP addresses to the client\. These are the IP addresses of the load balancer nodes for your load balancer\. With Network Load Balancers, Elastic Load Balancing creates a network interface for each Availability Zone that you enable\. Each load balancer node in the Availability Zone uses this network interface to get a static IP address\. You can optionally associate one Elastic IP address with each network interface when you create the load balancer\.
 
@@ -51,7 +51,7 @@ As traffic to your application changes over time, Elastic Load Balancing scales 
 
 The client determines which IP address to use to send requests to the load balancer\. The load balancer node that receives the request selects a healthy registered target and sends the request to the target using its private IP address\.
 
-### Routing Algorithm<a name="routing-algorithm"></a>
+### Routing algorithm<a name="routing-algorithm"></a>
 
 With **Application Load Balancers**, the load balancer node that receives the request uses the following process:
 
@@ -73,7 +73,7 @@ With **Classic Load Balancers**, the load balancer node that receives the reques
 + Uses the round robin routing algorithm for TCP listeners
 + Uses the least outstanding requests routing algorithm for HTTP and HTTPS listeners
 
-### HTTP Connections<a name="http-connections"></a>
+### HTTP connections<a name="http-connections"></a>
 
 Classic Load Balancers use pre\-open connections, but Application Load Balancers do not\. Both Classic Load Balancers and Application Load Balancers use connection multiplexing\. This means that requests from multiple clients on multiple front\-end connections can be routed to a given target through a single backend connection\. Connection multiplexing improves latency and reduces the load on your applications\. To prevent connection multiplexing, disable HTTP `keep-alives` by setting the `Connection: close` header in your HTTP responses\.
 
@@ -85,7 +85,7 @@ Both Application Load Balancers and Classic Load Balancers use HTTP/1\.1 on back
 
 Application Load Balancers and Classic Load Balancers support pipelined HTTP on front\-end connections\. They do not support pipelined HTTP on backend connections\.
 
-### HTTP Headers<a name="http-headers"></a>
+### HTTP headers<a name="http-headers"></a>
 
 Application Load Balancers and Classic Load Balancers add **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, and **X\-Forwarded\-Port** headers to the request\.
 
@@ -93,21 +93,23 @@ For front\-end connections that use HTTP/2, the header names are in lowercase\. 
 
 Application Load Balancers and Classic Load Balancers honor the connection header from the incoming client request after proxying the response back to the client\.
 
-### HTTP Header Limits<a name="http-header-limits"></a>
+When Application Load Balancers and Classic Load Balancers receive an **Expect** header, they respond to the client immediately with an HTTP 100 Continue without testing the content length header, remove the **Expect** header, and then route the request\.
+
+### HTTP header limits<a name="http-header-limits"></a>
 
 The following size limits for Application Load Balancers are hard limits that cannot be changed\.
 
-**HTTP/1\.x Headers**
+**HTTP/1\.x headers**
 + Request line: 16 K
 + Single header: 16 K
 + Whole header: 64 K
 
-**HTTP/2 Headers**
+**HTTP/2 headers**
 + Request line: 8 K
 + Single header: 8 K
 + Whole header: 64 K
 
-## Load Balancer Scheme<a name="load-balancer-scheme"></a>
+## Load balancer scheme<a name="load-balancer-scheme"></a>
 
 When you create a load balancer, you must choose whether to make it an internal load balancer or an internet\-facing load balancer\. Note that when you create a Classic Load Balancer in EC2\-Classic, it must be an internet\-facing load balancer\.
 
@@ -117,4 +119,4 @@ The nodes of an internal load balancer have only private IP addresses\. The DNS 
 
 Both internet\-facing and internal load balancers route requests to your targets using private IP addresses\. Therefore, your targets do not need public IP addresses to receive requests from an internal or an internet\-facing load balancer\.
 
-If your application has multiple tiers, you can design an architecture that uses both internal and internet\-facing load balancers\. For example, this is true if your application uses web servers that must be connected to the internet, and database servers that are only connected to the web servers\. Create an internet\-facing load balancer and register the web servers with it\. Create an internal load balancer and register the database servers with it\. The web servers receive requests from the internet\-facing load balancer and send requests for the database servers to the internal load balancer\. The database servers receive requests from the internal load balancer\.
+If your application has multiple tiers, you can design an architecture that uses both internal and internet\-facing load balancers\. For example, this is true if your application uses web servers that must be connected to the internet, and application servers that are only connected to the web servers\. Create an internet\-facing load balancer and register the web servers with it\. Create an internal load balancer and register the application servers with it\. The web servers receive requests from the internet\-facing load balancer and send requests for the application servers to the internal load balancer\. The application servers receive requests from the internal load balancer\.

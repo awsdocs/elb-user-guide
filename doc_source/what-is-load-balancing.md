@@ -1,8 +1,8 @@
-# What Is Elastic Load Balancing?<a name="what-is-load-balancing"></a>
+# What is Elastic Load Balancing?<a name="what-is-load-balancing"></a>
 
 Elastic Load Balancing distributes incoming application or network traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses, in multiple Availability Zones\. Elastic Load Balancing scales your load balancer as traffic to your application changes over time\. It can automatically scale to the vast majority of workloads\.
 
-## Load Balancer Benefits<a name="load-balancer-benefits"></a>
+## Load balancer benefits<a name="load-balancer-benefits"></a>
 
 A load balancer distributes workloads across multiple compute resources, such as virtual servers\. Using a load balancer increases the availability and fault tolerance of your applications\.
 
@@ -12,7 +12,7 @@ You can configure health checks, which monitor the health of the compute resourc
 
 ## Features of Elastic Load Balancing<a name="elb-features"></a>
 
-Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers\. You can select a load balancer based on your application needs\. For more information, see [Comparison of Elastic Load Balancing Products](https://aws.amazon.com/elasticloadbalancing/details/#compare)\.
+Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers\. You can select a load balancer based on your application needs\. For more information, see [Product comparisons](https://aws.amazon.com/elasticloadbalancing/details/#compare) for Elastic Load Balancing\.
 
 For more information about using each load balancer, see the [User Guide for Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/), the [User Guide for Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/), and the [User Guide for Classic Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/)\.
 
@@ -26,7 +26,7 @@ You can create, access, and manage your load balancers using any of the followin
   + Application Load Balancers and Network Load Balancers — [API version 2015\-12\-01](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/)
   + Classic Load Balancers — [API version 2012\-06\-01](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/)
 
-## Related Services<a name="elb-related-services"></a>
+## Related services<a name="elb-related-services"></a>
 
 Elastic Load Balancing works with the following services to improve the availability and scalability of your applications\.
 + **Amazon EC2** — Virtual servers that run your applications in the cloud\. You can configure your load balancer to route traffic to your EC2 instances\. For more information, see the [Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) or the [Amazon EC2 User Guide for Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/)\.
@@ -40,4 +40,4 @@ Elastic Load Balancing works with the following services to improve the availabi
 
 ## Pricing<a name="load-balancer-pricing"></a>
 
-With your load balancer, you pay only for what you use\. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/)\.
+With your load balancer, you pay only for what you use\. For more information, see [Elastic Load Balancing pricing](https://aws.amazon.com/elasticloadbalancing/pricing/)\.

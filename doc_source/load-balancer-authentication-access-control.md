@@ -1,4 +1,4 @@
-# Identity and Access Management for Elastic Load Balancing<a name="load-balancer-authentication-access-control"></a>
+# Identity and access management for Elastic Load Balancing<a name="load-balancer-authentication-access-control"></a>
 
 AWS uses security credentials to identify you and to grant you access to your AWS resources\. You can use features of AWS Identity and Access Management \(IAM\) to allow other users, services, and applications to use your AWS resources fully or in a limited way\. You can do this without sharing your security credentials\.
 
@@ -12,7 +12,7 @@ When you attach a policy to a user or group of users, it allows or denies the us
 
 For example, you can use IAM to create users and groups under your AWS account\. An IAM user can be a person, a system, or an application\. Then you grant permissions to the users and groups to perform specific actions on the specified resources using an IAM policy\.
 
-## Grant Permissions Using IAM Policies<a name="elb-iam-policies"></a>
+## Grant permissions using IAM policies<a name="elb-iam-policies"></a>
 
 When you attach a policy to a user or group of users, it allows or denies the users permission to perform the specified tasks on the specified resources\.
 
@@ -34,13 +34,13 @@ An IAM policy is a JSON document that consists of one or more statements\. Each 
 }
 ```
 + **Effect**— The *effect* can be `Allow` or `Deny`\. By default, IAM users don't have permission to use resources and API actions, so all requests are denied\. An explicit allow overrides the default\. An explicit deny overrides any allows\.
-+ **Action**— The *action* is the specific API action for which you are granting or denying permission\. For more information about specifying *action*, see [API Actions for Elastic Load Balancing](#elb-api-actions)\.
-+ **Resource**— The resource that's affected by the action\. With many Elastic Load Balancing API actions, you can restrict the permissions granted or denied to a specific load balancer\. To do so, specify its Amazon Resource Name \(ARN\) in this statement\. Otherwise, you can use the \* wildcard to specify all of your load balancers\. For more information, see [Elastic Load Balancing Resources](#elb-resources)\.
-+ **Condition**— You can optionally use conditions to control when your policy is in effect\. For more information, see [Condition Keys for Elastic Load Balancing](#elb-condition-keys)\.
++ **Action**— The *action* is the specific API action for which you are granting or denying permission\. For more information about specifying *action*, see [API actions for Elastic Load Balancing](#elb-api-actions)\.
++ **Resource**— The resource that's affected by the action\. With many Elastic Load Balancing API actions, you can restrict the permissions granted or denied to a specific load balancer\. To do so, specify its Amazon Resource Name \(ARN\) in this statement\. Otherwise, you can use the \* wildcard to specify all of your load balancers\. For more information, see [Elastic Load Balancing resources](#elb-resources)\.
++ **Condition**— You can optionally use conditions to control when your policy is in effect\. For more information, see [Condition keys for Elastic Load Balancing](#elb-condition-keys)\.
 
 For more information, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
 
-## API Actions for Elastic Load Balancing<a name="elb-api-actions"></a>
+## API actions for Elastic Load Balancing<a name="elb-api-actions"></a>
 
 In the **Action** element of your IAM policy statement, you can specify any API action that Elastic Load Balancing offers\. You must prefix the action name with the lowercase string `elasticloadbalancing:`, as shown in the following example\.
 
@@ -73,7 +73,7 @@ For the complete list of the API actions for Elastic Load Balancing, see the fol
 + Application Load Balancers and Network Load Balancers — [API Reference version 2015\-12\-01](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/)
 + Classic Load Balancers — [API Reference version 2012\-06\-01](https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/)
 
-## Elastic Load Balancing Resources<a name="elb-resources"></a>
+## Elastic Load Balancing resources<a name="elb-resources"></a>
 
 *Resource\-level permissions* refers to the ability to specify which resources users are allowed to perform actions on\. Elastic Load Balancing has partial support for resource\-level permissions\. For API actions that support resource\-level permissions, you can control the resources that users are allowed to use with the action\. To specify a resource in a policy statement, you must use its Amazon Resource Name \(ARN\)\. When specifying an ARN, you can use the \* wildcard in your paths\. For example, you can use the \* wildcard when you do not want to specify the exact load balancer name\.
 
@@ -114,7 +114,7 @@ The ARN for a target group has the format shown in the following example\.
 arn:aws:elasticloadbalancing:region-code:account-id:targetgroup/target-group-name/target-group-id
 ```
 
-**API Actions with No Support for Resource\-Level Permissions**
+**API actions with no support for resource\-level permissions**
 
 The following Elastic Load Balancing actions do not support resource\-level permissions:
 + API version 2015\-12\-01:
@@ -143,14 +143,14 @@ For API actions that don't support resource\-level permissions, you must specify
 "Resource": "*"
 ```
 
-## Resource\-Level Permissions for Elastic Load Balancing<a name="elb-resource-level-permissions"></a>
+## Resource\-level permissions for Elastic Load Balancing<a name="elb-resource-level-permissions"></a>
 
 The following tables describe the Elastic Load Balancing actions that support resource\-level permissions, and the supported resources for each action\.
 
 
 **API version 2015\-12\-01**  
 
-| API Action | Resource ARNs | 
+| API action | Resource ARNs | 
 | --- | --- | 
 | AddListenerCertificates | listener | 
 | AddTags | load balancer, target group | 
@@ -179,7 +179,7 @@ The following tables describe the Elastic Load Balancing actions that support re
 
 **API version 2012\-06\-01**  
 
-| API Action | Resource ARNs | 
+| API action | Resource ARNs | 
 | --- | --- | 
 | AddTags | load balancer | 
 | ApplySecurityGroupsToLoadBalancer | load balancer | 
@@ -204,7 +204,7 @@ The following tables describe the Elastic Load Balancing actions that support re
 | SetLoadBalancerPoliciesForBackendServer | load balancer | 
 | SetLoadBalancerPoliciesOfListener | load balancer | 
 
-## Condition Keys for Elastic Load Balancing<a name="elb-condition-keys"></a>
+## Condition keys for Elastic Load Balancing<a name="elb-condition-keys"></a>
 
 When you create a policy, you can specify the conditions that control when the policy is in effect\. Each condition contains one or more key\-value pairs\. There are global condition keys and service\-specific condition keys\.
 
@@ -252,17 +252,17 @@ The `elasticloadbalancing:ResourceTag`/*key* condition key is specific to Elasti
 + `SetLoadBalancerPoliciesForBackendServer`
 + `SetLoadBalancerPoliciesOfListener`
 
-For more information about global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
+For more information about global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
 The following actions support the `aws:RequestTag`/*key* and `aws:TagKeys` condition keys:
 + `AddTags`
 + `CreateLoadBalancer`
 + `RemoveTags`
 
-## Predefined AWS Managed Policies<a name="elb-predefined-policies"></a>
+## Predefined AWS managed policies<a name="elb-predefined-policies"></a>
 
 The managed policies created by AWS grant the required permissions for common use cases\. You can attach these policies to your IAM users, based on the access to Elastic Load Balancing that they require:
 + **ElasticLoadBalancingFullAccess** — Grants full access required to use Elastic Load Balancing features\.
 + **ElasticLoadBalancingReadOnly** — Grants read\-only access to Elastic Load Balancing features\.
 
-For more information about the permissions required by each Elastic Load Balancing action, see [Elastic Load Balancing API Permissions](elb-api-permissions.md)\.
+For more information about the permissions required by each Elastic Load Balancing action, see [Elastic Load Balancing API permissions](elb-api-permissions.md)\.

@@ -1,4 +1,4 @@
-# Elastic Load Balancing and Interface VPC Endpoints<a name="load-balancer-vpc-endpoints"></a>
+# Elastic Load Balancing and interface VPC endpoints<a name="load-balancer-vpc-endpoints"></a>
 
 You can establish a private connection between your virtual private cloud \(VPC\) and the Elastic Load Balancing API by creating an interface VPC endpoint\. You can use this connection to call the Elastic Load Balancing API from your VPC without sending traffic over the internet\. The endpoint provides reliable, scalable connectivity to the Elastic Load Balancing API, versions 2015\-12\-01 and 2012\-06\-01\. It does this without requiring an internet gateway, NAT instance, or VPN connection\.
 
@@ -7,15 +7,15 @@ Interface VPC endpoints are powered by AWS PrivateLink, a feature that enables p
 **Limit**  
 AWS PrivateLink does not support a Network Load Balancer with more than 50 listeners\.
 
-## Create an Interface Endpoint for Elastic Load Balancing<a name="create-vpce-elb"></a>
+## Create an interface endpoint for Elastic Load Balancing<a name="create-vpce-elb"></a>
 
 Create an endpoint for Elastic Load Balancing using one of the following service names:
 + **com\.amazonaws\.*region*\.elasticloadbalancing** — Creates an endpoint for the Elastic Load Balancing API operations\.
 + **com\.amazonaws\.*region*\.elasticloadbalancing\-fips** — Creates an endpoint for the Elastic Load Balancing API that complies with the US government standard [Federal Information Processing Standard \(FIPS\) 140\-2](http://aws.amazon.com/compliance/fips/)\.
 
-For more information, see [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\.
+For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\.
 
-## Create a VPC Endpoint Policy for Elastic Load Balancing<a name="create-vpce-policy-elb"></a>
+## Create a VPC endpoint policy for Elastic Load Balancing<a name="create-vpce-policy-elb"></a>
 
 You can attach a policy to your VPC endpoint to control access to the Elastic Load Balancing API\. The policy specifies:
 + The principal that can perform actions\.
@@ -43,4 +43,4 @@ The following example shows a VPC endpoint policy that denies everyone permissio
 }
 ```
 
-For more information, see [Using VPC Endpoint Policies](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html#vpc-endpoint-policies) in the *Amazon VPC User Guide*\.
+For more information, see [Using VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html#vpc-endpoint-policies) in the *Amazon VPC User Guide*\.

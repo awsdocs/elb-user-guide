@@ -1,4 +1,4 @@
-# Data Protection in Elastic Load Balancing<a name="data-protection"></a>
+# Data protection in Elastic Load Balancing<a name="data-protection"></a>
 
 Elastic Load Balancing conforms to the AWS [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/), which includes regulations and guidelines for data protection\. AWS is responsible for protecting the global infrastructure that runs all AWS services\. AWS maintains control over data hosted on this infrastructure, including the security configuration controls for handling customer content and personal data\. AWS customers and APN Partners, acting either as data controllers or data processors, are responsible for any personal data that they put in the AWS Cloud\. 
 
@@ -11,12 +11,12 @@ For data protection purposes, we recommend that you protect AWS account credenti
 
 We strongly recommend that you never put sensitive identifying information, such as your customers' account numbers, into free\-form fields or metadata, such as function names and tags\. Any data that you enter into metadata might get picked up for inclusion in diagnostic logs\. When you provide a URL to an external server, don't include credential information in the URL to validate your request to that server\.
 
-For more information about data protection, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
+For more information about data protection, see the [AWS shared responsibility model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
 
-## Encryption at Rest<a name="encryption-rest"></a>
+## Encryption at rest<a name="encryption-rest"></a>
 
 If you enable server\-side encryption with Amazon S3\-managed encryption keys \(SSE\-S3\) for your S3 bucket for Elastic Load Balancing access logs, Elastic Load Balancing automatically encrypts each access log file before it is stored in your S3 bucket\. Elastic Load Balancing also decrypts the access log files when you access them\. Each log file is encrypted with a unique key, which is itself encrypted with a master key that is regularly rotated\.
 
-## Encryption in Transit<a name="encryption-transit"></a>
+## Encryption in transit<a name="encryption-transit"></a>
 
 Elastic Load Balancing simplifies the process of building secure web applications by terminating HTTPS and TLS traffic from clients at the load balancer\. The load balancer performs the work of encrypting and decrypting the traffic, instead of requiring each EC2 instance to handle the work for TLS termination\. When you configure a secure listener, you specify the cipher suites and protocol versions that are supported by your application, and a server certificate to install on your load balancer\. You can use AWS Certificate Manager \(ACM\) or AWS Identity and Access Management \(IAM\) to manage your server certificates\. Application Load Balancers support HTTPS listeners\. Network Load Balancers support TLS listeners\. Classic Load Balancers support both HTTPS and TLS listeners\.
