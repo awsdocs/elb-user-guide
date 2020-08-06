@@ -9,9 +9,11 @@ AWS PrivateLink does not support a Network Load Balancer with more than 50 liste
 
 ## Create an interface endpoint for Elastic Load Balancing<a name="create-vpce-elb"></a>
 
-Create an endpoint for Elastic Load Balancing using one of the following service names:
-+ **com\.amazonaws\.*region*\.elasticloadbalancing** — Creates an endpoint for the Elastic Load Balancing API operations\.
-+ **com\.amazonaws\.*region*\.elasticloadbalancing\-fips** — Creates an endpoint for the Elastic Load Balancing API that complies with the US government standard [Federal Information Processing Standard \(FIPS\) 140\-2](http://aws.amazon.com/compliance/fips/)\.
+Create an endpoint for Elastic Load Balancing using the following service name:
+
+```
+com.amazonaws.region.elasticloadbalancing
+```
 
 For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\.
 
