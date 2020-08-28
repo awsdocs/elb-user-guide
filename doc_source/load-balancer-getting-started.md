@@ -4,7 +4,7 @@ There are three types of load balancers: Application Load Balancers, Network Loa
 
 For demos of common load balancer configurations, see [Elastic Load Balancing demos](https://exampleloadbalancer.com/)\.
 
-If you have an existing Classic Load Balancer, you can migrate to an Application Load Balancer or a Network Load Balancer\. For more information, see [Migrate your Classic Load Balancer](migrate-to-application-load-balancer.md)\.
+If you have an existing Classic Load Balancer, you can migrate to an Application Load Balancer or a Network Load Balancer\. For more information, see [Migrate your Classic Load Balancer](migrate-classic-load-balancer.md)\.
 
 ## Create an Application Load Balancer<a name="getting-started-alb"></a>
 

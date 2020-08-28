@@ -26,4 +26,4 @@ Amazon's trademarks and trade dress may not be used in
    + [Resilience in Elastic Load Balancing](disaster-recovery-resiliency.md)
    + [Infrastructure security in Elastic Load Balancing](infrastructure-security.md)
    + [Elastic Load Balancing and interface VPC endpoints](load-balancer-vpc-endpoints.md)
-+ [Migrate your Classic Load Balancer](migrate-to-application-load-balancer.md)
++ [Migrate your Classic Load Balancer](migrate-classic-load-balancer.md)
