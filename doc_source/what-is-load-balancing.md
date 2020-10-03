@@ -12,7 +12,7 @@ You can configure health checks, which monitor the health of the compute resourc
 
 ## Features of Elastic Load Balancing<a name="elb-features"></a>
 
-Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers\. You can select a load balancer based on your application needs\. For more information, see [Product comparisons](https://aws.amazon.com/elasticloadbalancing/details/#compare) for Elastic Load Balancing\.
+Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers\. You can select a load balancer based on your application needs\. For more information, see [Product comparisons](http://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons) for Elastic Load Balancing\.
 
 For more information about using each load balancer, see the [User Guide for Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/), the [User Guide for Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/), and the [User Guide for Classic Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/)\.
 
