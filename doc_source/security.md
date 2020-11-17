@@ -8,6 +8,8 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 
 This documentation helps you understand how to apply the shared responsibility model when using Elastic Load Balancing\. It shows you how to configure Elastic Load Balancing to meet your security and compliance objectives\. You also learn how to use other AWS services that help you to monitor and secure your Elastic Load Balancing resources\.
 
+With a [Gateway Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/), you are responsible for choosing and qualifying software from appliance vendors\. You must trust the appliance software to inspect or modify traffic from the load balancer, which operates at the layer 3 of the Open Systems Interconnection \(OSI\) model, the network layer\. The appliance vendors listed as [Elastic Load Balancing Partners](http://aws.amazon.com/elasticloadbalancing/partners/) have integrated and qualified their appliance software with AWS\. You can place a higher degree of trust in the appliance software from vendors in this list\. However, AWS does not guarantee the security or reliability of software from these vendors\.
+
 **Topics**
 + [Data protection](data-protection.md)
 + [Identity and access management](load-balancer-authentication-access-control.md)

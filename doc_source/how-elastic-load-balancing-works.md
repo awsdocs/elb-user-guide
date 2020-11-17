@@ -4,12 +4,13 @@ A load balancer accepts incoming traffic from clients and routes requests to its
 
 You configure your load balancer to accept incoming traffic by specifying one or more *listeners*\. A listener is a process that checks for connection requests\. It is configured with a protocol and port number for connections from clients to the load balancer\. Likewise, it is configured with a protocol and port number for connections from the load balancer to the targets\.
 
-Elastic Load Balancing supports three types of load balancers:
+Elastic Load Balancing supports the following types of load balancers:
 + Application Load Balancers
 + Network Load Balancers
++ Gateway Load Balancers
 + Classic Load Balancers
 
-There is a key difference in how the load balancer types are configured\. With Application Load Balancers and Network Load Balancers, you register targets in target groups, and route traffic to the target groups\. With Classic Load Balancers, you register instances with the load balancer\.
+There is a key difference in how the load balancer types are configured\. With Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, you register targets in target groups, and route traffic to the target groups\. With Classic Load Balancers, you register instances with the load balancer\.
 
 ## Availability Zones and load balancer nodes<a name="availability-zones"></a>
 
@@ -39,7 +40,7 @@ This is because each load balancer node can route its 50% of the client traffic 
 
 With Application Load Balancers, cross\-zone load balancing is always enabled\.
 
-With Network Load Balancers, cross\-zone load balancing is disabled by default\. After you create a Network Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Cross\-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#cross-zone-load-balancing) in the *User Guide for Network Load Balancers*\.
+With Network Load Balancers and Gateway Load Balancers, cross\-zone load balancing is disabled by default\. After you create the load balancer, you can enable or disable cross\-zone load balancing at any time\.
 
 When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Enable cross\-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html#enable-cross-zone) in the *User Guide for Classic Load Balancers*\.
 
@@ -75,15 +76,15 @@ With **Classic Load Balancers**, the load balancer node that receives the reques
 
 ### HTTP connections<a name="http-connections"></a>
 
-Classic Load Balancers use pre\-open connections, but Application Load Balancers do not\. Both Classic Load Balancers and Application Load Balancers use connection multiplexing\. This means that requests from multiple clients on multiple front\-end connections can be routed to a given target through a single backend connection\. Connection multiplexing improves latency and reduces the load on your applications\. To prevent connection multiplexing, disable HTTP `keep-alives` by setting the `Connection: close` header in your HTTP responses\.
+Classic Load Balancers use pre\-open connections, but Application Load Balancers do not\. Both Classic Load Balancers and Application Load Balancers use connection multiplexing\. This means that requests from multiple clients on multiple front\-end connections can be routed to a given target through a single backend connection\. Connection multiplexing improves latency and reduces the load on your applications\. To prevent connection multiplexing, disable HTTP `keep-alives` by setting the `Connection: close` header in your HTTP responses\. 
 
-Classic Load Balancers support the following protocols on front\-end connections \(client to load balancer\): HTTP/0\.9, HTTP/1\.0, and HTTP/1\.1\.
+Application Load Balancers and Classic Load Balancers support pipelined HTTP on front\-end connections\. They do not support pipelined HTTP on backend connections\.
 
 Application Load Balancers support the following protocols on front\-end connections: HTTP/0\.9, HTTP/1\.0, HTTP/1\.1, and HTTP/2\. You can use HTTP/2 only with HTTPS listeners, and can send up to 128 requests in parallel using one HTTP/2 connection\. Application Load Balancers also support connection upgrades from HTTP to WebSockets\.
 
-Both Application Load Balancers and Classic Load Balancers use HTTP/1\.1 on backend connections \(load balancer to registered target\)\. `Keep-alive` is supported on backend connections by default\. For HTTP/1\.0 requests from clients that do not have a host header, the load balancer generates a host header for the HTTP/1\.1 requests sent on the backend connections\. For Application Load Balancer, the host header contains the DNS name of the load balancer\. For Classic Load Balancer, the host header contains the IP address of the load balancer node\.
+Application Load Balancers use HTTP/1\.1 on backend connections \(load balancer to registered target\) by default\. However, you can use the protocol version to send the request to the targets using HTTP/2 or gRPC\. For more information, see [Protocol versions](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-protocol-version)\. `Keep-alive` is supported on backend connections by default\. For HTTP/1\.0 requests from clients that do not have a host header, the load balancer generates a host header for the HTTP/1\.1 requests sent on the backend connections\. The host header contains the DNS name of the load balancer\.
 
-Application Load Balancers and Classic Load Balancers support pipelined HTTP on front\-end connections\. They do not support pipelined HTTP on backend connections\.
+Classic Load Balancers support the following protocols on front\-end connections \(client to load balancer\): HTTP/0\.9, HTTP/1\.0, and HTTP/1\.1\. They use HTTP/1\.1 on backend connections \(load balancer to registered target\)\. `Keep-alive` is supported on backend connections by default\. For HTTP/1\.0 requests from clients that do not have a host header, the load balancer generates a host header for the HTTP/1\.1 requests sent on the backend connections\. The host header contains the IP address of the load balancer node\.
 
 ### HTTP headers<a name="http-headers"></a>
 
