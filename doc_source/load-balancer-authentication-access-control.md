@@ -1,6 +1,6 @@
 # Identity and access management for Elastic Load Balancing<a name="load-balancer-authentication-access-control"></a>
 
-AWS uses security credentials to identify you and to grant you access to your AWS resources\. You can use features of AWS Identity and Access Management \(IAM\) to allow other users, services, and applications to use your AWS resources fully or in a limited way\. You can do this without sharing your security credentials\.
+AWS uses security credentials to identify you and to grant you access to your AWS resources\. You can use the features of AWS Identity and Access Management \(IAM\) to allow other users, services, and applications to use your AWS resources fully or in a limited way\. You can do this without sharing your security credentials\.
 
 By default, IAM users don't have permission to create, view, or modify AWS resources\. To allow an IAM user to access resources such as a load balancer, and to perform tasks, you:
 
