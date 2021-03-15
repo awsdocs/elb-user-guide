@@ -1,6 +1,6 @@
 # Getting started with Elastic Load Balancing<a name="load-balancer-getting-started"></a>
 
-Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers\. You can select the type of load balancer that best suits your needs\. For more information, see [Product comparisons](http://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons) for Elastic Load Balancing\.
+Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers\. You can select the type of load balancer that best suits your needs\. For more information, see [Product comparisons](http://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons)\.
 
 For demos of common load balancer configurations, see [Elastic Load Balancing demos](https://exampleloadbalancer.com/)\.
 

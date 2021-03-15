@@ -16,7 +16,7 @@ There is a key difference in how the load balancer types are configured\. With A
 
 When you enable an Availability Zone for your load balancer, Elastic Load Balancing creates a load balancer node in the Availability Zone\. If you register targets in an Availability Zone but do not enable the Availability Zone, these registered targets do not receive traffic\. Your load balancer is most effective when you ensure that each enabled Availability Zone has at least one registered target\.
 
-We recommend that you enable multiple Availability Zones\. \(With an Application Load Balancer, we require you to enable multiple Availability Zones\.\) This configuration helps ensure that the load balancer can continue to route traffic\. If one Availability Zone becomes unavailable or has no healthy targets, the load balancer can route traffic to the healthy targets in another Availability Zone\.
+We recommend enabling multiple Availability Zones for all load balancers\. With an Application Load Balancer however, it is a requirement that you enable at least two or more Availability Zones\. This configuration helps ensure that the load balancer can continue to route traffic\. If one Availability Zone becomes unavailable or has no healthy targets, the load balancer can route traffic to the healthy targets in another Availability Zone\.
 
 After you disable an Availability Zone, the targets in that Availability Zone remain registered with the load balancer\. However, even though they remain registered, the load balancer does not route traffic to them\.
 
@@ -80,7 +80,7 @@ Classic Load Balancers use pre\-open connections, but Application Load Balancers
 
 Application Load Balancers and Classic Load Balancers support pipelined HTTP on front\-end connections\. They do not support pipelined HTTP on backend connections\.
 
-Application Load Balancers support the following protocols on front\-end connections: HTTP/0\.9, HTTP/1\.0, HTTP/1\.1, and HTTP/2\. You can use HTTP/2 only with HTTPS listeners, and can send up to 128 requests in parallel using one HTTP/2 connection\. Application Load Balancers also support connection upgrades from HTTP to WebSockets\.
+Application Load Balancers support the following protocols on front\-end connections: HTTP/0\.9, HTTP/1\.0, HTTP/1\.1, and HTTP/2\. You can use HTTP/2 only with HTTPS listeners, and can send up to 128 requests in parallel using one HTTP/2 connection\. Application Load Balancers also support connection upgrades from HTTP to WebSockets\. However, if there is a connection upgrade, Application Load Balancer listener routing rules and AWS WAF integrations no longer apply\.
 
 Application Load Balancers use HTTP/1\.1 on backend connections \(load balancer to registered target\) by default\. However, you can use the protocol version to send the request to the targets using HTTP/2 or gRPC\. For more information, see [Protocol versions](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-protocol-version)\. `Keep-alive` is supported on backend connections by default\. For HTTP/1\.0 requests from clients that do not have a host header, the load balancer generates a host header for the HTTP/1\.1 requests sent on the backend connections\. The host header contains the DNS name of the load balancer\.
 
@@ -88,7 +88,7 @@ Classic Load Balancers support the following protocols on front\-end connections
 
 ### HTTP headers<a name="http-headers"></a>
 
-Application Load Balancers and Classic Load Balancers add **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, and **X\-Forwarded\-Port** headers to the request\.
+Application Load Balancers and Classic Load Balancers automatically add **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, and **X\-Forwarded\-Port** headers to the request\.
 
 For front\-end connections that use HTTP/2, the header names are in lowercase\. Before the request is sent to the target using HTTP/1\.1, the following header names are converted to mixed case: **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, **X\-Forwarded\-Port**, **Host**, **X\-Amzn\-Trace\-Id**, **Upgrade**, and **Connection**\. All other header names are in lowercase\.
 
@@ -106,8 +106,8 @@ The following size limits for Application Load Balancers are hard limits that ca
 + Whole header: 64 K
 
 **HTTP/2 headers**
-+ Request line: 8 K
-+ Single header: 8 K
++ Request line: 16 K
++ Single header: 16 K
 + Whole header: 64 K
 
 ## Load balancer scheme<a name="load-balancer-scheme"></a>

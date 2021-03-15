@@ -1,6 +1,6 @@
 # What is Elastic Load Balancing?<a name="what-is-load-balancing"></a>
 
-Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones\. It monitors the health of its registered targets, and routes traffic only to the healthy targets\. Elastic Load Balancing scales your load balancer incoming traffic changes over time\. It can automatically scale to the vast majority of workloads\.
+Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones\. It monitors the health of its registered targets, and routes traffic only to the healthy targets\. Elastic Load Balancing scales your load balancer as your incoming traffic changes over time\. It can automatically scale to the vast majority of workloads\.
 
 ## Load balancer benefits<a name="load-balancer-benefits"></a>
 
@@ -12,7 +12,7 @@ You can configure health checks, which monitor the health of the compute resourc
 
 ## Features of Elastic Load Balancing<a name="elb-features"></a>
 
-Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers\. You can select the type of load balancer that best suits your needs\. For more information, see [Product comparisons](http://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons) for Elastic Load Balancing\.
+Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers\. You can select the type of load balancer that best suits your needs\. For more information, see [Product comparisons](http://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons)\.
 
 For more information about using each load balancer, see the [User Guide for Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/), the [User Guide for Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/), the [User Guide for Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/), and the [User Guide for Classic Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/)\.
 
