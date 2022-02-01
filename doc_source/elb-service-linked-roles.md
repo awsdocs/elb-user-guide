@@ -37,7 +37,7 @@ Elastic Load Balancing uses the service\-linked role named **AWSServiceRoleForEl
 
 ## Create the service\-linked role<a name="create-service-linked-role"></a>
 
-You don't need to manually create the **AWSServiceRoleForElasticLoadBalancing** role\. Elastic Load Balancing creates this role for you when you create a load balancer\.
+You don't need to manually create the **AWSServiceRoleForElasticLoadBalancing** role\. Elastic Load Balancing creates this role for you when you create a load balancer or a target group\.
 
 For Elastic Load Balancing to create a service\-linked role on your behalf, you must have the required permissions\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 

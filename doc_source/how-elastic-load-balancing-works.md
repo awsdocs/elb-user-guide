@@ -90,6 +90,8 @@ Classic Load Balancers support the following protocols on front\-end connections
 
 Application Load Balancers and Classic Load Balancers automatically add **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, and **X\-Forwarded\-Port** headers to the request\.
 
+Application Load Balancers convert the hostnames in HTTP host headers to lower case before sending them to targets\.
+
 For front\-end connections that use HTTP/2, the header names are in lowercase\. Before the request is sent to the target using HTTP/1\.1, the following header names are converted to mixed case: **X\-Forwarded\-For**, **X\-Forwarded\-Proto**, **X\-Forwarded\-Port**, **Host**, **X\-Amzn\-Trace\-Id**, **Upgrade**, and **Connection**\. All other header names are in lowercase\.
 
 Application Load Balancers and Classic Load Balancers honor the connection header from the incoming client request after proxying the response back to the client\.
@@ -121,3 +123,13 @@ The nodes of an internal load balancer have only private IP addresses\. The DNS 
 Both internet\-facing and internal load balancers route requests to your targets using private IP addresses\. Therefore, your targets do not need public IP addresses to receive requests from an internal or an internet\-facing load balancer\.
 
 If your application has multiple tiers, you can design an architecture that uses both internal and internet\-facing load balancers\. For example, this is true if your application uses web servers that must be connected to the internet, and application servers that are only connected to the web servers\. Create an internet\-facing load balancer and register the web servers with it\. Create an internal load balancer and register the application servers with it\. The web servers receive requests from the internet\-facing load balancer and send requests for the application servers to the internal load balancer\. The application servers receive requests from the internal load balancer\.
+
+## Network MTU for your load balancer<a name="load-balancer-network-MTU"></a>
+
+The maximum transmission unit \(MTU\) of a network connection is the size, in bytes, of the largest permissible packet that can be passed over the connection\. The larger the MTU of a connection, the more data that can be passed in a single packet\. Ethernet packets consist of the frame, or the actual data you are sending, and the network overhead information that surrounds it\. Traffic sent over an internet gateway is limited to 1500 MTU\. This means that if packets are over 1500 bytes, they are fragmented, or they are dropped if the `Don't Fragment` flag is set in the IP header\.
+
+The MTU size on an Application Load Balancer, Network Load Balancer, or Classic Load Balancer node is not configurable\. Jumbo frames \(MTU 9001\) are standard across all load balancer nodes\. The path MTU is the maximum packet size that is supported on the path between the originating host and the receiving host\. Path MTU Discovery \(PMTUD\) is used to determine the path MTU between two devices\. Path MTU Discovery is especially important if the client or target does not support jumbo frames\. 
+
+When a host sends a packet that is larger than the MTU of the receiving host or larger than the MTU of a device along the path, the receiving host or device drops the packet, and then returns the following ICMP message: `Destination Unreachable: Fragmentation Needed and Don't Fragment was Set (Type 3, Code 4)`\. This instructs the transmitting host to split the payload into multiple smaller packets, and retransmit them\.
+
+If packets larger than the MTU size of the client or target interface continue to be dropped, it is likely that Path MTU Discovery \(PMTUD\) is not working\. To avoid this, ensure that Path MTU Discovery is working end to end, and that you have enabled jumbo frames on your clients and targets\. For more information about Path MTU Discovery and enabling jumbo frames, see [Path MTU Discovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/network_mtu.html#path_mtu_discovery) in the *Amazon EC2 User Guide*\.

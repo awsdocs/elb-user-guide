@@ -1,7 +1,7 @@
 # Elastic Load Balancing User Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -22,6 +22,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Identity and access management for Elastic Load Balancing](load-balancer-authentication-access-control.md)
       + [Elastic Load Balancing API permissions](elb-api-permissions.md)
       + [Elastic Load Balancing service-linked role](elb-service-linked-roles.md)
+      + [AWS managed policies for Elastic Load Balancing](managed-policies.md)
    + [Compliance validation for Elastic Load Balancing](compliance-validation.md)
    + [Resilience in Elastic Load Balancing](disaster-recovery-resiliency.md)
    + [Infrastructure security in Elastic Load Balancing](infrastructure-security.md)

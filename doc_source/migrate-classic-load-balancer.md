@@ -2,11 +2,9 @@
 
 Elastic Load Balancing provides three types of load balancers: Classic Load Balancers, Application Load Balancers, and Network Load Balancers\. For information about the different features of each load balancer type, see [Comparison of Elastic Load Balancing products](https://aws.amazon.com/elasticloadbalancing/details/#compare)\.
 
-**Migration scenarios**
+If you have a Classic Load Balancer in a VPC, you can replace your Classic Load Balancer with an Application Load Balancer or a Network Load Balancer\.
 
-1. If you have an existing Classic Load Balancer in a VPC, verify that an Application Load Balancer or Network Load Balancer meets your needs and then migrate your Classic Load Balancer to one of these load balancer types\.
-
-1. If you have an existing Classic Load Balancer in EC2\-Classic, verify that an Application Load Balancer or Network Load Balancer meets your need and then migrate your Classic Load Balancer to one of these load balancer types\. Otherwise, migrate to a Classic Load Balancer in a VPC\. You can leave your instances in EC2\-Classic and enable ClassicLink to link the instances to the load balancer VPC, or you can migrate your instances from EC2\-Classic to a VPC\.
+We are retiring EC2\-Classic on August 15, 2022\. If you have a Classic Load Balancer in EC2\-Classic, you can [migrate to an Application Load Balancer or a Network Load Balancer](#migrate-create-load-balancer) or [migrate to a Classic Load Balancer in a VPC](#migrate-step-by-step-ec2-classic)\.
 
 **Topics**
 + [Step 1: Create a new load balancer](#migrate-create-load-balancer)
@@ -24,7 +22,7 @@ To create an Application Load Balancer or Network Load Balancer to replace a Cla
 + [Option 3: Migrate manually to an Application Load Balancer or Network Load Balancer](#migrate-step-by-step)
 
 To create a Classic Load Balancer in a VPC to replace a Classic Load Balancer in EC2\-Classic, use the following option:
-+ [Option 4: Migrate manually to a Classic Load Balancer in a VPC](#migrate-step-by-step-classiclink)
++ [Option 4: Migrate manually to a Classic Load Balancer in a VPC](#migrate-step-by-step-ec2-classic)
 
 ### Option 1: Use the migration wizard in the console<a name="migration-wizard"></a>
 
@@ -78,19 +76,15 @@ The following information provides general instructions for manually creating a 
 
 1. If your Classic Load Balancer has tags, review them and add the relevant tags to your new load balancer\.
 
-### Option 4: Migrate manually to a Classic Load Balancer in a VPC<a name="migrate-step-by-step-classiclink"></a>
+### Option 4: Migrate manually to a Classic Load Balancer in a VPC<a name="migrate-step-by-step-ec2-classic"></a>
 
 The following information provides general instructions for manually creating a new Classic Load Balancer in a VPC based on a Classic Load Balancer in EC2\-Classic\. You can migrate using the AWS Management Console, the AWS CLI, or an AWS SDK\. For more information, see [Tutorial: Create a Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-getting-started.html) in the *User Guide for Classic Load Balancers*\.
 
-1. Do one of the following:
-   + Enable ClassicLink on your VPC and link your EC2\-Classic instances to the VPC\. For more information, see [Use ClassicLink for an incremental migration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html#classiclink-migrate) in the *Amazon EC2 User Guide*\.
-   + Migrate your EC2 resources, such as instances and security groups, from EC2\-Classic to a VPC\. For more information, see [Migrate your resources to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html#full-migrate) in the *Amazon EC2 User Guide*\.
+1. Migrate your EC2 resources, such as instances and security groups, from EC2\-Classic to a VPC\. For more information, see [Migrate your resources to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html#full-migrate) in the *Amazon EC2 User Guide*\.
 
 1. Create a new Classic Load Balancer in a VPC\.
 
-1. When you create the load balancer, select the VPC that you prepared \(either the VPC with ClassicLink enabled or the VPC that you used when migrating your instances from EC2\-Classic\)\. Select one subnet from each Availability Zone that contains the instances that you plan to register with the new load balancer\.
-
-1. When you are prompted to assign a security group, if the VPC is enabled with ClassicLink, select the same security group that you specified when you enabled ClassicLink\.
+1. When you create the load balancer, select the VPC that you used when migrating your instances from EC2\-Classic\. Select one subnet from each Availability Zone that contains the instances that you plan to register with the new load balancer\.
 
 1. When prompted, select the instances to register with the load balancer\.
 
