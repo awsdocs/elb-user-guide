@@ -22,13 +22,13 @@ To view the permissions for this policy, see [AWSElasticLoadBalancingServiceRole
 
 This policy gives full access to the Elastic Load Balancing service and limited access to other services via the AWS Management Console\.
 
-To view the permissions for this policy, see [ElasticLoadBalancingFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/ElasticLoadBalancingFullAccess) in the AWS Management Console\.
+To view the permissions for this policy, see [ElasticLoadBalancingFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess) in the AWS Management Console\.
 
 ## AWS managed policy: ElasticLoadBalancingReadOnly<a name="ElasticLoadBalancingReadOnly"></a>
 
 This policy provides read\-only access to Elastic Load Balancing and dependent services\.
 
-To view the permissions for this policy, see [ElasticLoadBalancingReadOnly](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/ElasticLoadBalancingReadOnly) in the AWS Management Console\.
+To view the permissions for this policy, see [ElasticLoadBalancingReadOnly](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/ElasticLoadBalancingReadOnly) in the AWS Management Console\.
 
 ## Elastic Load Balancing updates to AWS managed policies<a name="policy-updates"></a>
 

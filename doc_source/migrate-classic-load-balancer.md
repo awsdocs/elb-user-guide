@@ -1,10 +1,15 @@
 # Migrate your Classic Load Balancer<a name="migrate-classic-load-balancer"></a>
 
+
+|  | 
+| --- |
+| We are retiring EC2\-Classic network on August 15, 2022\. We recommend that you migrate your Classic Load Balancers from the EC2\-Classic network to a VPC\. For more information, see [Migrate from EC2\-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in the Amazon EC2 User Guide and the blog [EC2\-Classic Networking is Retiring – Here’s How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
+
 Elastic Load Balancing provides three types of load balancers: Classic Load Balancers, Application Load Balancers, and Network Load Balancers\. For information about the different features of each load balancer type, see [Comparison of Elastic Load Balancing products](https://aws.amazon.com/elasticloadbalancing/details/#compare)\.
 
-If you have a Classic Load Balancer in a VPC, you can replace your Classic Load Balancer with an Application Load Balancer or a Network Load Balancer\.
+If you have a Classic Load Balancer in an EC2\-Classic network, you must migrate it to a VPC\. AWS will retire the EC2\-Classic network on August 15, 2022\. After this date, Classic Load Balancers will only be available in VPCs\. To prevent interruptions, you must migrate any Classic Load Balancers you have in EC2\-Classic to a VPC before August 15, 2022\. For more information, see [migrate to a Classic Load Balancer in a VPC](#migrate-step-by-step-ec2-classic)\.
 
-We are retiring EC2\-Classic on August 15, 2022\. If you have a Classic Load Balancer in EC2\-Classic, you can [migrate to an Application Load Balancer or a Network Load Balancer](#migrate-create-load-balancer) or [migrate to a Classic Load Balancer in a VPC](#migrate-step-by-step-ec2-classic)\.
+You can also choose to replace a Classic Load Balancer in a VPC, with an Application Load Balancer or a Network Load Balancer\. For more information, see [migrate to an Application Load Balancer or a Network Load Balancer](#migrate-create-load-balancer)\.
 
 **Topics**
 + [Step 1: Create a new load balancer](#migrate-create-load-balancer)

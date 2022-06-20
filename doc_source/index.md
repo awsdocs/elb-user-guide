@@ -26,5 +26,5 @@ Amazon's trademarks and trade dress may not be used in
    + [Compliance validation for Elastic Load Balancing](compliance-validation.md)
    + [Resilience in Elastic Load Balancing](disaster-recovery-resiliency.md)
    + [Infrastructure security in Elastic Load Balancing](infrastructure-security.md)
-   + [Elastic Load Balancing and interface VPC endpoints](load-balancer-vpc-endpoints.md)
+   + [Access Elastic Load Balancing using an interface endpoint (AWS PrivateLink)](load-balancer-vpc-endpoints.md)
 + [Migrate your Classic Load Balancer](migrate-classic-load-balancer.md)

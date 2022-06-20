@@ -16,4 +16,4 @@ With a [Gateway Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/
 + [Compliance validation](compliance-validation.md)
 + [Resilience](disaster-recovery-resiliency.md)
 + [Infrastructure security](infrastructure-security.md)
-+ [Interface VPC endpoints](load-balancer-vpc-endpoints.md)
++ [AWS PrivateLink](load-balancer-vpc-endpoints.md)

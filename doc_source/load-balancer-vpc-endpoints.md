@@ -1,11 +1,11 @@
-# Elastic Load Balancing and interface VPC endpoints<a name="load-balancer-vpc-endpoints"></a>
+# Access Elastic Load Balancing using an interface endpoint \(AWS PrivateLink\)<a name="load-balancer-vpc-endpoints"></a>
 
 You can establish a private connection between your virtual private cloud \(VPC\) and the Elastic Load Balancing API by creating an interface VPC endpoint\. You can use this connection to call the Elastic Load Balancing API from your VPC without requiring that you attach an internet gateway, NAT instance, or VPN connection to your VPC\. The endpoint provides reliable, scalable connectivity to the Elastic Load Balancing API, versions 2015\-12\-01 and 2012\-06\-01, which you use to create and manage your load balancers\.
 
 Interface VPC endpoints are powered by AWS PrivateLink, a feature that enables communication between your applications and AWS services using private IP addresses\. For more information, see [AWS PrivateLink](http://aws.amazon.com/privatelink/)\.
 
 **Limit**  
-AWS PrivateLink does not support a Network Load Balancer with more than 50 listeners\.
+AWS PrivateLink does not support Network Load Balancers with more than 50 listeners\.
 
 ## Create an interface endpoint for Elastic Load Balancing<a name="create-vpce-elb"></a>
 
@@ -15,7 +15,7 @@ Create an endpoint for Elastic Load Balancing using the following service name:
 com.amazonaws.region.elasticloadbalancing
 ```
 
-For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) in the *Amazon VPC User Guide*\.
+For more information, see [Create an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *AWS PrivateLink Guide*\.
 
 ## Create a VPC endpoint policy for Elastic Load Balancing<a name="create-vpce-policy-elb"></a>
 
@@ -45,4 +45,4 @@ The following example shows a VPC endpoint policy that denies everyone permissio
 }
 ```
 
-For more information, see [Using VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html#vpc-endpoint-policies) in the *Amazon VPC User Guide*\.
+For more information, see [Control access to services using endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html) in the *AWS PrivateLink Guide*\.
