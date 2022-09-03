@@ -24,7 +24,7 @@ After you disable an Availability Zone, the targets in that Availability Zone re
 
 The nodes for your load balancer distribute requests from clients to registered targets\. When cross\-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones\. When cross\-zone load balancing is disabled, each load balancer node distributes traffic only across the registered targets in its Availability Zone\.
 
-The following diagrams demonstrate the effect of cross\-zone load balancing with round robin is the default routing algorithm\. There are two enabled Availability Zones, with two targets in Availability Zone A and eight targets in Availability Zone B\. Clients send requests, and Amazon Route 53 responds to each request with the IP address of one of the load balancer nodes\. Based on the round robin routing algorithm, traffic is distributed such that each load balancer node receives 50% of the traffic from the clients\. Each load balancer node distributes its share of the traffic across the registered targets in its scope\.
+The following diagrams demonstrate the effect of cross\-zone load balancing with round robin as the default routing algorithm\. There are two enabled Availability Zones, with two targets in Availability Zone A and eight targets in Availability Zone B\. Clients send requests, and Amazon Route 53 responds to each request with the IP address of one of the load balancer nodes\. Based on the round robin routing algorithm, traffic is distributed such that each load balancer node receives 50% of the traffic from the clients\. Each load balancer node distributes its share of the traffic across the registered targets in its scope\.
 
 If cross\-zone load balancing is enabled, each of the 10 targets receives 10% of the traffic\. This is because each load balancer node can route its 50% of the client traffic to all 10 targets\.
 
@@ -105,16 +105,21 @@ The following size limits for Application Load Balancers are hard limits that ca
 **HTTP/1\.x headers**
 + Request line: 16 K
 + Single header: 16 K
-+ Whole header: 64 K
++ Entire header: 64 K
 
 **HTTP/2 headers**
 + Request line: 16 K
 + Single header: 16 K
-+ Whole header: 64 K
++ Entire header: 64 K
 
 ## Load balancer scheme<a name="load-balancer-scheme"></a>
 
 When you create a load balancer, you must choose whether to make it an internal load balancer or an internet\-facing load balancer\. Note that when you create a Classic Load Balancer in EC2\-Classic, it must be an internet\-facing load balancer\.
+
+
+|  | 
+| --- |
+| We are retiring EC2\-Classic network on August 15, 2022\. We recommend that you migrate your Classic Load Balancers from the EC2\-Classic network to a VPC\. For more information, see [Migrate from EC2\-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in the Amazon EC2 User Guide and the blog [EC2\-Classic Networking is Retiring – Here’s How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
 
 The nodes of an internet\-facing load balancer have public IP addresses\. The DNS name of an internet\-facing load balancer is publicly resolvable to the public IP addresses of the nodes\. Therefore, internet\-facing load balancers can route requests from clients over the internet\.
 

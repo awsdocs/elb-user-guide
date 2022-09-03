@@ -3,7 +3,7 @@
 
 |  | 
 | --- |
-| We are retiring EC2\-Classic network on August 15, 2022\. We recommend that you migrate your Classic Load Balancers from the EC2\-Classic network to a VPC\. For more information, see [Migrate from EC2\-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in the Amazon EC2 User Guide and the blog [EC2\-Classic Networking is Retiring – Here’s How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
+| We are retiring EC2\-Classic network\. We recommend that you migrate your Classic Load Balancers from the EC2\-Classic network to a VPC\. For more information, see [Migrate from EC2\-Classic to a VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) in the Amazon EC2 User Guide and the blog [EC2\-Classic Networking is Retiring – Here's How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\. | 
 
 Elastic Load Balancing provides three types of load balancers: Classic Load Balancers, Application Load Balancers, and Network Load Balancers\. For information about the different features of each load balancer type, see [Comparison of Elastic Load Balancing products](https://aws.amazon.com/elasticloadbalancing/details/#compare)\.
 
