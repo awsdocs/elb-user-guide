@@ -14,7 +14,11 @@ You can configure health checks, which monitor the health of the compute resourc
 
 Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers\. You can select the type of load balancer that best suits your needs\. For more information, see [Product comparisons](http://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons)\.
 
-For more information about using each load balancer, see the [User Guide for Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/), the [User Guide for Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/), the [User Guide for Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/), and the [User Guide for Classic Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/)\.
+For more information about using each load balancer, see the following documentation:
++ [User Guide for Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/)
++ [User Guide for Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)
++ [User Guide for Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/)
++ [User Guide for Classic Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/)
 
 ## Accessing Elastic Load Balancing<a name="elb-access-methods"></a>
 

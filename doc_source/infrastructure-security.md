@@ -18,8 +18,6 @@ To call the Elastic Load Balancing API from your VPC without sending traffic ove
 
 ## Controlling network traffic<a name="control-network-traffic"></a>
 
-Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers\. Application Load Balancers operate at the request level \(layer 7\) of the Open Systems Interconnection \(OSI\) model\. Network Load Balancers operate at the connection level \(layer 4\) of the OSI model\. Classic Load Balancers operate at both the request and connection levels\.
-
 Consider the following options for securing network traffic when you use a load balancer:
 + Use secure listeners to support encrypted communication between clients and your load balancers\. Application Load Balancers support HTTPS listeners\. Network Load Balancers support TLS listeners\. Classic Load Balancers support both HTTPS and TLS listeners\. You can choose from predefined security policies for your load balancer to specify the cipher suites and protocol versions that are supported by your application\. You can use AWS Certificate Manager \(ACM\) or AWS Identity and Access Management \(IAM\) to manage the server certificates installed on your load balancer\. You can use the Server Name Indication \(SNI\) protocol to serve multiple secure websites using a single secure listener\. SNI is automatically enabled for your load balancer when you associate more than one server certificate with a secure listener\.
 + Configure the security groups for your Application Load Balancers and Classic Load Balancers to accept traffic only from specific clients\. These security groups must allow inbound traffic from clients on the listener ports and outbound traffic to the clients\.

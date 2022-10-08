@@ -100,17 +100,11 @@ When Application Load Balancers and Classic Load Balancers receive an **Expect**
 
 ### HTTP header limits<a name="http-header-limits"></a>
 
-The following size limits for Application Load Balancers are hard limits that cannot be changed\.
-
-**HTTP/1\.x headers**
+The following size limits for Application Load Balancers are hard limits that cannot be changed:
 + Request line: 16 K
 + Single header: 16 K
-+ Entire header: 64 K
-
-**HTTP/2 headers**
-+ Request line: 16 K
-+ Single header: 16 K
-+ Entire header: 64 K
++ Entire response header: 32 K
++ Entire request header: 64 K
 
 ## Load balancer scheme<a name="load-balancer-scheme"></a>
 
