@@ -38,15 +38,34 @@ This is because each load balancer node can route its 50% of the client traffic 
 
 ![\[When cross-zone load balancing is disabled\]](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/cross_zone_load_balancing_disabled.png)
 
-With Application Load Balancers, cross\-zone load balancing is always enabled\.
+With Application Load Balancers, cross\-zone load balancing is always enabled at the load balancer level\. At the target group level, cross\-zone load balancing can be disabled\. For more information, see [Turn off cross\-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/disable-cross-zone.html#cross_zone_console_disable) in the *User Guide for Application Load Balancers*\.
 
 With Network Load Balancers and Gateway Load Balancers, cross\-zone load balancing is disabled by default\. After you create the load balancer, you can enable or disable cross\-zone load balancing at any time\.
 
 When you create a Classic Load Balancer, the default for cross\-zone load balancing depends on how you create the load balancer\. With the API or CLI, cross\-zone load balancing is disabled by default\. With the AWS Management Console, the option to enable cross\-zone load balancing is selected by default\. After you create a Classic Load Balancer, you can enable or disable cross\-zone load balancing at any time\. For more information, see [Enable cross\-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html#enable-cross-zone) in the *User Guide for Classic Load Balancers*\.
 
+### Zonal shift<a name="zonal-shift"></a>
+
+Zonal shift is a capability in Amazon Route 53 Application Recovery Controller \(Route 53 ARC\)\. With zonal shift, you can shift a load balancer resource away from an impaired Availability Zone with a single action\. This way, you can continue operating from other healthy Availability Zones in an AWS Region\.
+
+
+
+When you start a zonal shift, your load balancer stops sending traffic for the resource to the affected Availability Zone\. Route 53 ARC creates the zonal shift immediately\. However, it can take a short time, typically up to a few minutes, to complete existing, in\-progress connections in the affected Availability Zone\. For more information, see [How a zonal shift works: health checks and zonal IP addresses](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.how-it-works.html) in the *Amazon Route 53 Application Recovery Controller Developer Guide*\.
+
+Zonal shifts are only supported on Application Load Balancers and Network Load Balancers with cross\-zone load balancing turned off\. If you turn on cross\-zone load balancing, you can't start a zonal shift\. For more information, see [Resources supported for zonal shifts](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.html) in the *Amazon Route 53 Application Recovery Controller Developer Guide*\.
+
+Before you use a zonal shift, review the following:
++ Cross\-zone load balancing isn't supported with zonal shifts\. You must turn off cross\-zone load balancing to use this capability\.
++ Zonal shift isn't supported when you use an Application Load Balancer as an accelerator endpoint in AWS Global Accelerator\.
++ You can start a zonal shift for a specific load balancer only for a single Availability Zone\. You can't start a zonal shift for multiple Availability Zones\.
++ AWS proactively removes zonal load balancer IP addresses from DNS when multiple infrastructure issues impact services\. Always check current Availability Zone capacity before you start a zonal shift\. If your load balancers have cross\-zone load balancing turned off and you use a zonal shift to remove a zonal load balancer IP address, the Availability Zone affected by the zonal shift also loses target capacity\.
++ When an Application Load Balancer is a target of a Network Load Balancer, always start the zonal shift from the Network Load Balancer\. If you start a zonal shift from the Application Load Balancer, the Network Load Balancer doesn't recognize the shift and continues to send traffic to the Application Load Balancer\.
+
+For more guidance and information, see [Best practices with Route 53 ARC zonal shifts](https://docs.aws.amazon.com/r53recovery/latest/dg/route53-arc-best-practices.html#zonalshift.route53-arc-best-practices.zonal-shifts) in the *Amazon Route 53 Application Recovery Controller Developer Guide*\.
+
 ## Request routing<a name="request-routing"></a>
 
-Before a client sends a request to your load balancer, it resolves the load balancer's domain name using a Domain Name System \(DNS\) server\. The DNS entry is controlled by Amazon, because your load balancers are in the `amazonaws.com` domain\. The Amazon DNS servers return one or more IP addresses to the client\. These are the IP addresses of the load balancer nodes for your load balancer\. With Network Load Balancers, Elastic Load Balancing creates a network interface for each Availability Zone that you enable\. Each load balancer node in the Availability Zone uses this network interface to get a static IP address\. You can optionally associate one Elastic IP address with each network interface when you create the load balancer\.
+Before a client sends a request to your load balancer, it resolves the load balancer's domain name using a Domain Name System \(DNS\) server\. The DNS entry is controlled by Amazon, because your load balancers are in the `amazonaws.com` domain\. The Amazon DNS servers return one or more IP addresses to the client\. These are the IP addresses of the load balancer nodes for your load balancer\. With Network Load Balancers, Elastic Load Balancing creates a network interface for each Availability Zone that you enable, and uses it to get a static IP address\. You can optionally associate one Elastic IP address with each network interface when you create the Network Load Balancer\.
 
 As traffic to your application changes over time, Elastic Load Balancing scales your load balancer and updates the DNS entry\. The DNS entry also specifies the time\-to\-live \(TTL\) of 60 seconds\. This helps ensure that the IP addresses can be remapped quickly in response to changing traffic\.
 

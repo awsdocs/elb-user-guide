@@ -1,10 +1,10 @@
 # Elastic Load Balancing API permissions<a name="elb-api-permissions"></a>
 
-You must grant IAM users permission to call the Elastic Load Balancing API actions they need, as described in [API actions for Elastic Load Balancing](load-balancer-authentication-access-control.md#elb-api-actions)\. In addition, for some Elastic Load Balancing actions, you must grant IAM users permission to call specific actions from the Amazon EC2 API\.
+You must grant users permission to call the Elastic Load Balancing API actions they need\. In addition, for some Elastic Load Balancing actions, you must grant users permission to call specific actions from the Amazon EC2 API\.
 
 ## Required permissions for the 2015\-12\-01 API<a name="required-permissions-v2"></a>
 
-When calling the following actions from the 2015\-12\-01 API, you must grant IAM users permission to call the specified actions\.
+When calling the following actions from the 2015\-12\-01 API, you must grant users permission to call the specified actions\.
 
 `CreateLoadBalancer`  
 + `elasticloadbalancing:CreateLoadBalancer`
@@ -38,7 +38,7 @@ When calling the following actions from the 2015\-12\-01 API, you must grant IAM
 
 ## Required permissions for the 2012\-06\-01 API<a name="required-permissions-v1"></a>
 
-When calling the following actions from the 2012\-06\-01 API, you must grant IAM users permission to call the specified actions\.
+When calling the following actions from the 2012\-06\-01 API, you must grant users permission to call the specified actions\.
 
 `ApplySecurityGroupsToLoadBalancer`  
 + `elasticloadbalancing:ApplySecurityGroupsToLoadBalancer`

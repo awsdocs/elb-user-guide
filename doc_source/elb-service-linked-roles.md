@@ -5,33 +5,38 @@ Elastic Load Balancing uses a service\-linked role for the permissions that it r
 ## Permissions granted by the service\-linked role<a name="service-linked-role-permissions"></a>
 
 Elastic Load Balancing uses the service\-linked role named **AWSServiceRoleForElasticLoadBalancing** to call the following actions on your behalf:
-+ `ec2:DescribeAddresses`
-+ `ec2:DescribeInstances`
-+ `ec2:DescribeNetworkInterfaces`
-+ `ec2:DescribeSubnets`
-+ `ec2:DescribeSecurityGroups`
-+ `ec2:DescribeVpcs`
-+ `ec2:DescribeInternetGateways`
-+ `ec2:DescribeAccountAttributes`
-+ `ec2:DescribeClassicLinkInstances`
-+ `ec2:DescribeVpcClassicLink`
-+ `ec2:CreateSecurityGroup`
-+ `ec2:CreateNetworkInterface`
-+ `ec2:DeleteNetworkInterface`
-+ `ec2:ModifyNetworkInterfaceAttribute`
-+ `ec2:AuthorizeSecurityGroupIngress`
-+ `ec2:AssociateAddress`
-+ `ec2:DisassociateAddress`
-+ `ec2:AttachNetworkInterface`
-+ `ec2:DetachNetworkInterface`
-+ `ec2:AssignPrivateIpAddresses`
 + `ec2:AssignIpv6Addresses`
++ `ec2:AssignPrivateIpAddresses`
++ `ec2:AssociateAddress`
++ `ec2:AttachNetworkInterface`
++ `ec2:AuthorizeSecurityGroupIngress`
++ `ec2:CreateNetworkInterface`
++ `ec2:CreateSecurityGroup`
++ `ec2:DeleteNetworkInterface`
++ `ec2:DescribeAccountAttributes`
++ `ec2:DescribeAddresses`
++ `ec2:DescribeClassicLinkInstances`
++ `ec2:DescribeCoipPools`
++ `ec2:DescribeInstances`
++ `ec2:DescribeInternetGateways`
++ `ec2:DescribeNetworkInterfaces`
++ `ec2:DescribeSecurityGroups`
++ `ec2:DescribeSubnets`
++ `ec2:DescribeVpcClassicLink`
++ `ec2:DescribeVpcPeeringConnections`
++ `ec2:DescribeVpcs`
++ `ec2:DetachNetworkInterface`
++ `ec2:DisassociateAddress`
++ `ec2:GetCoipPoolUsage`
++ `ec2:ModifyNetworkInterfaceAttribute`
++ `ec2:ReleaseAddress`
 + `ec2:UnassignIpv6Addresses`
 + `logs:CreateLogDelivery`
-+ `logs:GetLogDelivery`
-+ `logs:UpdateLogDelivery`
 + `logs:DeleteLogDelivery`
++ `logs:GetLogDelivery`
 + `logs:ListLogDeliveries`
++ `logs:UpdateLogDelivery`
++ `outposts:GetOutpostInstanceTypes`
 
 **AWSServiceRoleForElasticLoadBalancing** trusts the `elasticloadbalancing.amazonaws.com` service to assume the role\.
 

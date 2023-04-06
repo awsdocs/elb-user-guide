@@ -20,6 +20,7 @@ sponsored by Amazon.
 + [Security in Elastic Load Balancing](security.md)
    + [Data protection in Elastic Load Balancing](data-protection.md)
    + [Identity and access management for Elastic Load Balancing](load-balancer-authentication-access-control.md)
+      + [How Elastic Load Balancing works with IAM](security_iam_service-with-iam.md)
       + [Elastic Load Balancing API permissions](elb-api-permissions.md)
       + [Elastic Load Balancing service-linked role](elb-service-linked-roles.md)
       + [AWS managed policies for Elastic Load Balancing](managed-policies.md)

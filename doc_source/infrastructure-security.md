@@ -14,7 +14,7 @@ When you create a load balancer in a VPC, it can be either internet\-facing or i
 
 Your load balancer sends requests to its registered targets using private IP addresses\. Therefore, your targets do not need public IP addresses in order to receive requests from a load balancer\.
 
-To call the Elastic Load Balancing API from your VPC without sending traffic over the public internet, use AWS PrivateLink\. For more information, see [Access Elastic Load Balancing using an interface endpoint \(AWS PrivateLink\)](load-balancer-vpc-endpoints.md)\.
+To call the Elastic Load Balancing API from your VPC using private IP addresses, use AWS PrivateLink\. For more information, see [Access Elastic Load Balancing using an interface endpoint \(AWS PrivateLink\)](load-balancer-vpc-endpoints.md)\.
 
 ## Controlling network traffic<a name="control-network-traffic"></a>
 
